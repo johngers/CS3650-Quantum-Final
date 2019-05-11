@@ -90,7 +90,7 @@ while choice == "default":
 
 print("Loading quantum opponent...")
 
-# load IBM Q account
+# Soad IBM Q account
 IBMQ.load_accounts()
 
 # Finds the least busy IBM quantum computer to use as the backend
@@ -98,7 +98,7 @@ backend = least_busy(IBMQ.backends(simulator=False))
 print("The least busy device:", backend.name())
 
 
-# set up Quantum Register and Classical Register for 2 qubits
+# Set up Quantum Register and Classical Register for 2 qubits
 q = QuantumRegister(2)
 c = ClassicalRegister(2)
 # Create a Quantum Circuit
