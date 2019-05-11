@@ -27,3 +27,5 @@ Running it at a later time:
 
 2. 	Run the program with the following command:	
 	python RockPaperScissorsQuantum.py
+	
+<img width="682" alt="Output" src="https://user-images.githubusercontent.com/45726943/57564461-de96f300-7360-11e9-9bc2-4fe6383a24ca.png">
