@@ -38,4 +38,4 @@ If you are not authorized to use the IBM Quantum Computer, then you will have to
 
 **Sample output:**
 
-<img width="682" alt="Output" src="https://user-images.githubusercontent.com/45726943/57564519-cd021b00-7361-11e9-85a2-5feed48454a2.png">
+<img width="500" alt="Output" src="https://user-images.githubusercontent.com/45726943/57564519-cd021b00-7361-11e9-85a2-5feed48454a2.png">
