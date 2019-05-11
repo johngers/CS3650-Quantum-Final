@@ -90,7 +90,7 @@ while choice == "default":
 
 print("Loading quantum opponent...")
 
-# Soad IBM Q account
+# Load IBMQ account
 IBMQ.load_accounts()
 
 # Finds the least busy IBM quantum computer to use as the backend
