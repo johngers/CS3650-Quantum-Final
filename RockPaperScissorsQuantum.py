@@ -1,5 +1,7 @@
+# John Gers CS 3650 Final
+# Found a bug where invalid input would add an extra recursive call so I'm updating this file for github
 # Import essential libraries for IBMQ
-from qiskit import IBMQ
+from qiskit import IBMQ, BasicAer
 from qiskit.tools.monitor import job_monitor
 from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit
 from qiskit import execute
@@ -20,10 +22,9 @@ def userChoice():
     try:
         choice = int(choice)
     except ValueError:
-        choice = 4	# Input is not a number
+        choice = 4	# Input is not a number set to 4
     if choice != 1 and choice != 2 and choice != 3:
         print("\nI said between 1 and 3!") # Input isn't 1,2, or 3.
-        userChoice()	# Prompt again
 
     if choice == 1:
         return("Rock")
@@ -94,20 +95,23 @@ print("Loading quantum opponent...")
 IBMQ.load_accounts()
 
 # Finds the least busy IBM quantum computer to use as the backend
-backend = least_busy(IBMQ.backends(simulator=False))
+backend = BasicAer.get_backend('statevector_simulator') # Run a simulation
+#backend = least_busy(IBMQ.backends(simulator=False)) # Run it on IBM's computer
 print("The least busy device:", backend.name())
-
 
 # Set up Quantum Register and Classical Register for 2 qubits
 q = QuantumRegister(2)
 c = ClassicalRegister(2)
 # Create a Quantum Circuit
 qc = QuantumCircuit(q, c)
-qc.h(q)
+qc.h(q)	# Hadamard gate that give the qubits an equal opportunity
+
+#qc.measure(q,c)
+#print(qc.draw()) # Display circuit
 
 print("Please wait...")
 
-# Gives the quantum computer 5 times to win a game of rock paper scissors
+# Gives the quantum computer 5 tries to win a game of rock paper scissors
 for i in range(5):
 	# Checks the state of the two qubits 1000 times
     job = execute(qc, backend=backend, shots=1000)
